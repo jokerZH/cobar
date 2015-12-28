@@ -20,6 +20,7 @@ package com.alibaba.cobar.parser.util;
  */
 public final class ParseUtil {
 
+	/* 空格 \t \n \r ; */
     public static boolean isEOF(char c) {
         return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == ';');
     }
@@ -40,6 +41,10 @@ public final class ParseUtil {
      * <code>'abc'</code>
      * 
      * @param offset stmt.charAt(offset) == first <code>'</code>
+	 * 从stmt中获得一个单引号括起来的字符串　TODO
+	 *
+	 * 将字符串中的\x转换成对应的特殊字符串
+	 * 碰到一个单引号 则返回，如果碰到两个单引号，则写入一个单引号，这里应该是对单引号的处理，有点转义的味道
      */
     private static String parseString(String stmt, int offset) {
         StringBuilder sb = new StringBuilder();
@@ -86,6 +91,8 @@ public final class ParseUtil {
      * <code>"abc"</code>
      * 
      * @param offset stmt.charAt(offset) == first <code>"</code>
+	 *
+	 * 和上面类似，只是这里是双引号
      */
     private static String parseString2(String stmt, int offset) {
         StringBuilder sb = new StringBuilder();
@@ -132,6 +139,8 @@ public final class ParseUtil {
      * <code>AS `abc`</code>
      * 
      * @param offset stmt.charAt(offset) == first <code>`</code>
+	 *
+	 * 找到第一个`,返回前面的字符串,两个连续的``表示一个`
      */
     private static String parseIdentifierEscape(String stmt, int offset) {
         StringBuilder sb = new StringBuilder();
@@ -153,6 +162,8 @@ public final class ParseUtil {
 
     /**
      * @param aliasIndex for <code>AS id</code>, index of 'i'
+	 *
+	 * 获得stmt中aliasIndex开始的一个identidifer eg 'xxx' "xxx" `xxx` xxx
      */
     public static String parseAlias(String stmt, final int aliasIndex) {
         if (aliasIndex < 0 || aliasIndex >= stmt.length()) {
@@ -172,6 +183,7 @@ public final class ParseUtil {
         }
     }
 
+	/* 如果offset指向了/*! xxx */ 或者 #xxx 开头，则返回末尾的下表，否则返回offset */
     public static int comment(String stmt, int offset) {
         int len = stmt.length();
         int n = offset;
@@ -197,6 +209,7 @@ public final class ParseUtil {
         return offset;
     }
 
+	/* 判断stmt中offset的字符是否是空格类的 */
     public static boolean currentCharIsSep(String stmt, int offset) {
         if (stmt.length() > offset) {
             switch (stmt.charAt(offset)) {
@@ -239,7 +252,7 @@ public final class ParseUtil {
         boolean isSep;
         for (; i < stmt.length() && index < nextExpectedString.length(); ++i) {
             if (index == 0) {
-                isSep = currentCharIsSep(stmt, i);
+                isSep = currentCharIsSep(stmt, i); 	/* 去掉开头的空格 */
                 if (isSep) {
                     continue;
                 }
@@ -297,6 +310,7 @@ public final class ParseUtil {
         return i;
     }
 
+	/* 向后移动length， 不计算开头的注视和空格 */
     public static int move(String stmt, int offset, int length) {
         int i = offset;
         for (; i < stmt.length(); ++i) {
@@ -317,6 +331,7 @@ public final class ParseUtil {
         return i;
     }
 
+	/* 检查空offset开头的字符串是否是keyword */
     public static boolean compare(String s, int offset, char[] keyword) {
         if (s.length() >= offset + keyword.length) {
             for (int i = 0; i < keyword.length; ++i, ++offset) {

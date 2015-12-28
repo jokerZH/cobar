@@ -38,6 +38,7 @@ public class ExprEvalUtils {
     private static final int CLASS_MAP_BIG_ING = 3;
     private static final int CLASS_MAP_BIG_DECIMAL = 4;
     private static final int CLASS_MAP_LONG = 5;
+	/* 数字类到对应标号值的map */
     private static final Map<Class<? extends Number>, Integer> classMap = new HashMap<Class<? extends Number>, Integer>(
             5);
     static {
@@ -48,6 +49,10 @@ public class ExprEvalUtils {
         classMap.put(Long.class, CLASS_MAP_LONG);
     }
 
+	/*
+	 * 支持LiteralBoolean Boolean String Number
+	 * 根据是否为0来判断是否为boolean
+	 */
     public static boolean obj2bool(Object obj) {
         if (obj == LiteralBoolean.TRUE)
             return true;
@@ -183,6 +188,7 @@ public class ExprEvalUtils {
         throw new IllegalArgumentException("unsupported number class: " + clz);
     }
 
+	/* 根据string返回数字 */
     public static Number string2Number(String str) {
         if (str == null)
             return null;

@@ -22,6 +22,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 实现对解析出来的语法树进行操作的统一接口
  */
 public interface ASTNode {
     void accept(SQLASTVisitor visitor);

@@ -25,12 +25,13 @@ import java.util.Map;
  * left conbine in default
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
- * 二元操作
+ *
+ *	保存二元参数
  */
 public abstract class BinaryOperatorExpression extends AbstractExpression {
     protected final Expression leftOprand;
     protected final Expression rightOprand;
-    protected final int precedence;
+    protected final int precedence;			/* 操作类型,在Expression中定义 */
     protected final boolean leftCombine;	/* TODO */
 
     /**

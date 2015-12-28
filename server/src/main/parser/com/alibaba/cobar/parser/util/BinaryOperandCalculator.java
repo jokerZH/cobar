@@ -23,6 +23,8 @@ import java.math.BigInteger;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 二元操作
  */
 public interface BinaryOperandCalculator {
     Number calculate(Integer integer1, Integer integer2);

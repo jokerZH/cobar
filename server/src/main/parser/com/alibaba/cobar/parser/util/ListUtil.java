@@ -27,6 +27,7 @@ import java.util.List;
  */
 public final class ListUtil {
 
+	/* 讲objs构造成list，返回*/
     @SuppressWarnings("rawtypes")
     public static List<?> createList(Object... objs) {
         return createList(new ArrayList(), objs);
@@ -42,6 +43,7 @@ public final class ListUtil {
         return list;
     }
 
+	/* list是否相同，顺序也要一样 */
     public static boolean isEquals(List<? extends Object> l1, List<? extends Object> l2) {
         if (l1 == l2)
             return true;

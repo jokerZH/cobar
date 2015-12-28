@@ -22,11 +22,13 @@ import java.util.Map;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 增加对计算结果金进行缓存的功能
  */
 public abstract class AbstractExpression implements Expression {
-    private boolean cacheEvalRst = true;	/* 是否缓存结果 */
-    private boolean evaluated;
-    private Object evaluationCache;
+    private boolean cacheEvalRst = true;	/* 是否缓存结果 	*/
+    private boolean evaluated;				/* 是否已经缓存了结果	*/	
+    private Object evaluationCache;			/* 缓存的计算结果	*/
 
     @Override
     public Expression setCacheEvalRst(boolean cacheEvalRst) {
@@ -34,6 +36,7 @@ public abstract class AbstractExpression implements Expression {
         return this;
     }
 
+	/* 在计算函数外面包上缓存相关的东西 */
     @Override
     public final Object evaluation(Map<? extends Object, ? extends Object> parameters) {
         if (cacheEvalRst) {
@@ -47,7 +50,7 @@ public abstract class AbstractExpression implements Expression {
         return evaluationInternal(parameters);
     }
 
-		/* 干活函数 */
+	/* 根据参数计算结果的函数 */
     protected abstract Object evaluationInternal(Map<? extends Object, ? extends Object> parameters);
 
 }

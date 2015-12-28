@@ -24,11 +24,11 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
- * 一元操作
+ * 保存一元参数,也可以作为语法树中的一个节点
  */
 public abstract class UnaryOperatorExpression extends AbstractExpression {
     private final Expression operand;
-    protected final int precedence;
+    protected final int precedence;		/* 操作类型,在Expression中定义 */
 
     public UnaryOperatorExpression(Expression operand, int precedence) {
         if (operand == null)

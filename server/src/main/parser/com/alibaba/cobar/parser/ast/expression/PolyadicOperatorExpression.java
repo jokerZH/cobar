@@ -28,11 +28,11 @@ import java.util.Map;
  * non-polyadic operator with same precedence is not exist
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
- * 保存一个多元操作，如用 OR AND 操作多个数据
+ * 保存多元参数，如用 OR AND 操作多个数据
  */
 public abstract class PolyadicOperatorExpression extends AbstractExpression {
     protected List<Expression> operands;
-    protected final int precedence;
+    protected final int precedence;		/* 操作类型,在Expression中定义 */
 
     public PolyadicOperatorExpression(int precedence) {
         this(precedence, true);
@@ -49,7 +49,7 @@ public abstract class PolyadicOperatorExpression extends AbstractExpression {
 
     /**
      * @return this
-		 * 将operand加入到当前的操作对象列表中
+	 * 将operand加入到当前的操作对象列表中
      */
     public PolyadicOperatorExpression appendOperand(Expression operand) {
         if (operand == null)

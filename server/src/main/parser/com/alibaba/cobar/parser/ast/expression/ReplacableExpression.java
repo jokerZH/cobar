@@ -22,6 +22,8 @@ import com.alibaba.cobar.parser.ast.expression.primary.literal.LiteralBoolean;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * TODO
  */
 public interface ReplacableExpression extends Expression {
     LiteralBoolean BOOL_FALSE = new LiteralBoolean(false);

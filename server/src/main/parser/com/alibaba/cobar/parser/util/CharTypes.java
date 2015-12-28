@@ -22,7 +22,7 @@ import com.alibaba.cobar.parser.recognizer.mysql.lexer.MySQLLexer;
  * @author shaojin.wensj
  */
 public class CharTypes {
-    private final static boolean[] hexFlags = new boolean[256];
+    private final static boolean[] hexFlags = new boolean[256];	/* 在[0-9a-zA-Z]上是1，别的是0 */
     static {
         for (char c = 0; c < hexFlags.length; ++c) {
             if (c >= 'A' && c <= 'F') {
@@ -35,16 +35,17 @@ public class CharTypes {
         }
     }
 
-		/* [a-fA-F0-9] */
+	/* [a-fA-F0-9] */
     public static boolean isHex(char c) {
         return c < 256 && hexFlags[c];
     }
 
+	/* [0-9]*/
     public static boolean isDigit(char c) {
         return c >= '0' && c <= '9';
     }
 
-    private final static boolean[] identifierFlags = new boolean[256];
+    private final static boolean[] identifierFlags = new boolean[256];	/* 在[0-9a-zA-Z]_$上是1，别的是0 */
     static {
         for (char c = 0; c < identifierFlags.length; ++c) {
             if (c >= 'A' && c <= 'Z') {
@@ -60,7 +61,7 @@ public class CharTypes {
         identifierFlags['$'] = true;
     }
 
-		/* [a-zA-Z0-9]*/
+	/* [a-zA-Z0-9_$]*/
     public static boolean isIdentifierChar(char c) {
         return c > identifierFlags.length || identifierFlags[c];
     }

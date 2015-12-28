@@ -143,6 +143,8 @@ import com.alibaba.cobar.parser.ast.stmt.mts.MTSSetTransactionStatement;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ *  Vistor实现这个接口，语法数中的借点都会调用vistor(this)函数，根据this的类型就执行对应的visit函数
  */
 public interface SQLASTVisitor {
 
