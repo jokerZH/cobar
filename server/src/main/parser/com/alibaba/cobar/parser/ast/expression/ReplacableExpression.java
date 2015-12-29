@@ -23,7 +23,7 @@ import com.alibaba.cobar.parser.ast.expression.primary.literal.LiteralBoolean;
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
  *
- * TODO
+ * 可以通过别的表达式替代的，这样计算的代码就减少了
  */
 public interface ReplacableExpression extends Expression {
     LiteralBoolean BOOL_FALSE = new LiteralBoolean(false);

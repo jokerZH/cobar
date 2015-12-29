@@ -28,6 +28,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * <code>higherExpr '/' higherExpr</code>
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 不支持除法
  */
 public class ArithmeticDivideExpression extends ArithmeticBinaryOperatorExpression {
     public ArithmeticDivideExpression(Expression leftOprand, Expression rightOprand) {

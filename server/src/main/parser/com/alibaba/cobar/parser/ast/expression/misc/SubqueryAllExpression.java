@@ -24,6 +24,8 @@ import com.alibaba.cobar.parser.ast.expression.UnaryOperatorExpression;
  * <code>'ALL' '(' subquery  ')'</code>
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * select * from xxx where 3 > ALL(select * from B) 
  */
 public class SubqueryAllExpression extends UnaryOperatorExpression {
     public SubqueryAllExpression(QueryExpression subquery) {

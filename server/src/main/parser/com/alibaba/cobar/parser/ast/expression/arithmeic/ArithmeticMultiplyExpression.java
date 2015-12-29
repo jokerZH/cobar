@@ -28,6 +28,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * <code>higherExpr '*' higherExpr</code>
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 不支持乘法
  */
 public class ArithmeticMultiplyExpression extends ArithmeticBinaryOperatorExpression {
     public ArithmeticMultiplyExpression(Expression leftOprand, Expression rightOprand) {

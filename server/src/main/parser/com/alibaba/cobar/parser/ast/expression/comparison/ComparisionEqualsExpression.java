@@ -33,6 +33,7 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
  */
+/* 对比两个整数是否相等 */
 public class ComparisionEqualsExpression extends BinaryOperatorExpression implements ReplacableExpression {
 
     public ComparisionEqualsExpression(Expression leftOprand, Expression rightOprand) {

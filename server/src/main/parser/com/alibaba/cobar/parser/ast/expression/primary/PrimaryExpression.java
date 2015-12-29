@@ -24,6 +24,7 @@ import com.alibaba.cobar.parser.ast.expression.AbstractExpression;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ * TODO
  */
 public abstract class PrimaryExpression extends AbstractExpression {
     @Override

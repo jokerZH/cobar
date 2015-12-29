@@ -26,6 +26,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * <code>higherExpr '&' higherExpr</code>
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 不做运算，只表示下结构
  */
 public class BitAndExpression extends BinaryOperatorExpression {
     public BitAndExpression(Expression leftOprand, Expression rightOprand) {

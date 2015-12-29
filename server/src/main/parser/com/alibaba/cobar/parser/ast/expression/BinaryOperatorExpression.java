@@ -26,7 +26,7 @@ import java.util.Map;
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
  *
- *	保存二元参数
+ *	二元参数计算
  */
 public abstract class BinaryOperatorExpression extends AbstractExpression {
     protected final Expression leftOprand;

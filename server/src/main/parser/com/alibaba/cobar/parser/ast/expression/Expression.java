@@ -46,7 +46,7 @@ public interface Expression extends ASTNode {
     int PRECEDENCE_UNARY_OP = 15;	/* TODO */
     int PRECEDENCE_BINARY = 16;		/* TODO */
     int PRECEDENCE_COLLATE = 17;	/* TODO */
-    int PRECEDENCE_PRIMARY = 19;	/* TODO */
+    int PRECEDENCE_PRIMARY = 19;	/* TODO 表示由别的地方指定类型, 如ALL ANY 用户变量 */
 
     /**
      * @return precedences are defined in {@link Expression}

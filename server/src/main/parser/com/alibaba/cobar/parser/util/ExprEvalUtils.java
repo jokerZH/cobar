@@ -38,9 +38,9 @@ public class ExprEvalUtils {
     private static final int CLASS_MAP_BIG_ING = 3;
     private static final int CLASS_MAP_BIG_DECIMAL = 4;
     private static final int CLASS_MAP_LONG = 5;
+	
 	/* 数字类到对应标号值的map */
-    private static final Map<Class<? extends Number>, Integer> classMap = new HashMap<Class<? extends Number>, Integer>(
-            5);
+    private static final Map<Class<? extends Number>, Integer> classMap = new HashMap<Class<? extends Number>, Integer>(5);
     static {
         classMap.put(Double.class, CLASS_MAP_DOUBLE);
         classMap.put(Float.class, CLASS_MAP_FLOAT);
@@ -93,6 +93,7 @@ public class ExprEvalUtils {
     private static final int NUM_BIG_INTEGER = 3;
     private static final int NUM_BIG_DECIMAL = 4;
 
+	/* 根据num的类型执行cal中对应的计算函数 */
     public static Number calculate(UnaryOperandCalculator cal, Number num) {
         if (num == null)
             return null;
@@ -107,6 +108,7 @@ public class ExprEvalUtils {
         throw new IllegalArgumentException("unsupported add calculate: " + num.getClass());
     }
 
+	/* 根据n1,n2的类型执行cal中对应的计算函数 */
     public static Number calculate(BinaryOperandCalculator cal, Number n1, Number n2) {
         if (n1 == null || n2 == null)
             return null;
@@ -123,6 +125,8 @@ public class ExprEvalUtils {
 
     /**
      * @param obj1 class of String or Number
+	 *
+	 * 将obj1，obj2改成同一个类型
      */
     public static Pair<Number, Number> convertNum2SameLevel(Object obj1, Object obj2) {
         Number n1, n2;
@@ -149,6 +153,7 @@ public class ExprEvalUtils {
         return new Pair<Number, Number>(n1, n2);
     }
 
+	/* 将num 向高精度的类型转变 */
     private static Number upTolevel(Number num, int level) {
         switch (level) {
         case NUM_INT:
@@ -172,6 +177,7 @@ public class ExprEvalUtils {
         }
     }
 
+	/* 获得clz对应的编号 */
     private static int getNumberLevel(Class<?> clz) {
         if (Integer.class.isAssignableFrom(clz)) {
             return NUM_INT;

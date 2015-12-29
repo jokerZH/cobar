@@ -43,7 +43,7 @@ public class BetweenAndExpression extends TernaryOperatorExpression implements R
         return PRECEDENCE_BETWEEN_AND;
     }
 
-    private Expression replaceExpr;
+    private Expression replaceExpr;	/* 替代between的Expression */
 
     @Override
     public void setReplaceExpr(Expression replaceExpr) {

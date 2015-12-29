@@ -35,6 +35,8 @@ public class InExpression extends BinaryOperatorExpression implements Replacable
 
     /**
      * @param rightOprand {@link QueryExpression} or {@link InExpressionList}
+	 * 
+	 * rightOprand是一个InExpressionList类型
      */
     public InExpression(boolean not, Expression leftOprand, Expression rightOprand) {
         super(leftOprand, rightOprand, PRECEDENCE_COMPARISION);

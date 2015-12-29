@@ -26,7 +26,7 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * 用户定义变量
  */
 public class UserExpression extends PrimaryExpression {
-    private final String userAtHost;
+    private final String userAtHost;	/* TODO 只在本地生效的用户变量 */
 
     /**
      * @param userAtHost

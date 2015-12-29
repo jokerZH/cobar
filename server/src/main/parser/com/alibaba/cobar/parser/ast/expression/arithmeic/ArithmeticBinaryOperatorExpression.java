@@ -28,6 +28,8 @@ import com.alibaba.cobar.parser.util.Pair;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 实现计算参数的功能
  */
 public abstract class ArithmeticBinaryOperatorExpression extends BinaryOperatorExpression
         implements BinaryOperandCalculator {
@@ -35,16 +37,18 @@ public abstract class ArithmeticBinaryOperatorExpression extends BinaryOperatorE
         super(leftOprand, rightOprand, precedence, true);
     }
 
+	/* 由父类调用 */
+	/* parameters的作用，TODO */
     @Override
     public Object evaluationInternal(Map<? extends Object, ? extends Object> parameters) {
-        Object left = leftOprand.evaluation(parameters);
+        Object left = leftOprand.evaluation(parameters);	/* 计算参数的值 */
         Object right = rightOprand.evaluation(parameters);
         if (left == null || right == null)
             return null;
         if (left == UNEVALUATABLE || right == UNEVALUATABLE)
             return UNEVALUATABLE;
         Pair<Number, Number> pair = ExprEvalUtils.convertNum2SameLevel(left, right);
-        return ExprEvalUtils.calculate(this, pair.getKey(), pair.getValue());
+        return ExprEvalUtils.calculate(this, pair.getKey(), pair.getValue());  	/* 子类需要实现calculate接口 */
     }
 
 }

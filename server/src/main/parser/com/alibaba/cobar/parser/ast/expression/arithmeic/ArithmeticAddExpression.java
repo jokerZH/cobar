@@ -28,6 +28,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
  * <code>higherExpr '+' higherExpr</code>
  * 
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * 实现具体的操作
  */
 public class ArithmeticAddExpression extends ArithmeticBinaryOperatorExpression {
     public ArithmeticAddExpression(Expression leftOprand, Expression rightOprand) {
@@ -39,6 +41,7 @@ public class ArithmeticAddExpression extends ArithmeticBinaryOperatorExpression 
         return "+";
     }
 
+	/* 由父类的evaluate接口调用，所以不会被直接调用 */
     @Override
     public Number calculate(Integer integer1, Integer integer2) {
         if (integer1 == null || integer2 == null)
