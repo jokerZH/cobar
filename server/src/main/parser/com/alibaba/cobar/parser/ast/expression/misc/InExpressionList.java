@@ -29,6 +29,8 @@ import com.alibaba.cobar.parser.visitor.SQLASTVisitor;
 
 /**
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
+ *
+ * IN后面Expression列表
  */
 public class InExpressionList extends AbstractExpression {
     private List<Expression> list;
