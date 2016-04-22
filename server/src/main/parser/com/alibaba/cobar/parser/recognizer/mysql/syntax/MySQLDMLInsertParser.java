@@ -51,10 +51,11 @@ public class MySQLDMLInsertParser extends MySQLDMLInsertReplaceParser {
     }
 
     /**
+	 * TODO insert的语法结构1
      * nothing has been pre-consumed <code><pre>
      * 'INSERT' ('LOW_PRIORITY'|'DELAYED'|'HIGH_PRIORITY')? 'IGNORE'? 'INTO'? tbname 
-     *  (  'SET' colName ('='|':=') (expr|'DEFAULT') (',' colName ('='|':=') (expr|'DEFAULT'))*
-     *   | '(' (  colName (',' colName)* ')' ( ('VALUES'|'VALUE') value (',' value)*
+     *  ( 'SET' colName ('='|':=') (expr|'DEFAULT') (',' colName ('='|':=') (expr|'DEFAULT'))*
+     *   | '('  colName (',' colName)* ')' ( ('VALUES'|'VALUE') value (',' value)*
      *                                        | '(' 'SELECT' ... ')'
      *                                        | 'SELECT' ...  
      *                                       )

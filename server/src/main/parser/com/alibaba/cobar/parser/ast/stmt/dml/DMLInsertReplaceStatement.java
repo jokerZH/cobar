@@ -28,9 +28,9 @@ import com.alibaba.cobar.parser.ast.expression.primary.RowExpression;
  * @author <a href="mailto:shuo.qius@alibaba-inc.com">QIU Shuo</a>
  */
 public abstract class DMLInsertReplaceStatement extends DMLStatement {
-    protected final Identifier table;
-    protected final List<Identifier> columnNameList;
-    protected List<RowExpression> rowList;
+    protected final Identifier table;					/* 表名 */
+    protected final List<Identifier> columnNameList;	/* 字段名 */
+    protected List<RowExpression> rowList;				/* 值的二维数字 */
     protected final QueryExpression select;
 
     @SuppressWarnings("unchecked")

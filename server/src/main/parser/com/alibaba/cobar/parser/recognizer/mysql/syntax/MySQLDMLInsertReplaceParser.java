@@ -40,6 +40,7 @@ public abstract class MySQLDMLInsertReplaceParser extends MySQLDMLParser {
         super(lexer, exprParser);
     }
 
+	/* 解析values中值的expression列表的列表 */
     protected List<RowExpression> rowList() throws SQLSyntaxErrorException {
         List<RowExpression> valuesList;
         List<Expression> tempRowValue = rowValue();

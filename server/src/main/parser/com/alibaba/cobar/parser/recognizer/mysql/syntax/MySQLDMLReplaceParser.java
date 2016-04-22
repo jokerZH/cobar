@@ -48,16 +48,18 @@ public class MySQLDMLReplaceParser extends MySQLDMLInsertReplaceParser {
     /**
      * nothing has been pre-consumed <code><pre>
      * 'REPLACE' ('LOW_PRIORITY' | 'DELAYED')? ('INTO')? tableName
-     *  (  'SET' colName ('='|':=') (expr|'DEFAULT') (',' colName ('='|':=') (expr|'DEFAULT'))*
-     *   | '(' (  colName (','colName)* ')' (  '(' 'SELECT' ... ')'
-     *                                       | 'SELECT' ...
-     *                                       |('VALUES'|'VALUE') value ( ',' value )*
-     *                                      )
-     *          | 'SELECT' ... ')'
-     *         )
+     *  (  
+ 	 *     'SET' colName ('='|':=') (expr|'DEFAULT') (',' colName ('='|':=') (expr|'DEFAULT'))*
+     *   | '(' colName (','colName)* ')' ( 
+	 *										'(' 'SELECT' ... ')'
+     *                                    | 'SELECT' ...
+     *                                    | ('VALUES'|'VALUE') value ( ',' value )*
+     *                                   )
+     *   | '(' 'SELECT' ... ')'
      *   | 'SELECT' ...
      *   |('VALUES'|'VALUE') value ( ',' value )*
      *  )
+	 *
      * value := '(' (expr|'DEFAULT') ( ',' (expr|'DEFAULT'))* ')'
      * </pre></code>
      */
